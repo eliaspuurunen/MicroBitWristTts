@@ -1,0 +1,95 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+
+        <Style TargetType="Button">
+            <Setter Property="Padding"
+                    Value="40,0" />
+            <Setter Property="FontSize"
+                    Value="40" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Green"/>
+                </Trigger>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Background" Value="Red"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="Yellow"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"  />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ProgressBar Orientation="Vertical"
+                     Grid.Column="1"
+                     Grid.RowSpan="4"
+                     Width="100"
+                     Minimum="0"
+                     Maximum="360"
+                     Foreground="{Binding AngleFill}"
+                     Value="{Binding CurrentAngle}"/>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                      VerticalScrollBarVisibility="Hidden">
+            <StackPanel Orientation="Horizontal"
+                        x:Name="btnContainer">
+
+            </StackPanel>
+        </ScrollViewer>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!--<Button>Confirm</Button>
+            <Button Grid.Column="1">Undo</Button>
+            <Button Grid.Column="2">Reset</Button>-->
+        </Grid>
+
+        <TextBox Grid.Row="2" 
+                 x:Name="txtOutput"
+                 FontSize="36"
+                 AcceptsReturn="True"
+                 AcceptsTab="True"
+                 TextWrapping="Wrap"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible" />
+
+        <TextBox Grid.Row="3" 
+                 x:Name="txtDebug"
+                 FontSize="12"
+                 AcceptsReturn="True"
+                 AcceptsTab="True"
+                 FontFamily="Consolas"
+                 TextWrapping="Wrap"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible" />
+
+        <ProgressBar Orientation="Horizontal"
+                     Grid.Row="4"
+                     Height="50"
+                     Minimum="0"
+                     Maximum="360"
+                     Value="{Binding CurrentRoll}"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/WpfApp1/bin/Debug
+/.vs/WpfApp1/v15/Server/sqlite3
+/WpfApp1/obj/Debug
